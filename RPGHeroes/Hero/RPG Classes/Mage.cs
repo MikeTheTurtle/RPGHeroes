@@ -10,7 +10,6 @@ namespace RPGHeroes.Hero.RPG_Classes
     {
         public Mage(string name) : base(name)
         {
-            
         }
     }
 }

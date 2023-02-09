@@ -15,7 +15,7 @@ namespace RPGHeroes.Hero
         public string Name { get => name; set => name = value; }
         public int Level { get => level; set => level = value; }
 
-        protected HeroAttribute levelAttributes;
+        protected HeroAttribute attributes;
         protected enum equipmentType
         {
             Weapon,
