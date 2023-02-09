@@ -1,0 +1,1 @@
+﻿Console.WriteLine("This gunna be guud MrTeacher");
