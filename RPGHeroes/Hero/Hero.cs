@@ -10,12 +10,12 @@ namespace RPGHeroes.Hero
 {
     public abstract class Hero
     {
-        protected string name;
-        protected int level;
-        public string Name { get => name; set => name = value; }
-        public int Level { get => level; set => level = value; }
+        protected string heroName;
+        protected int heroLevel;
+        public string HeroName { get => heroName; set => heroName = value; }
+        public int Level { get => heroLevel; set => heroLevel = value; }
 
-        protected HeroAttribute attributes;
+        protected HeroAttribute heroAttributes;
         protected enum equipmentType
         {
             Weapon,
@@ -30,13 +30,13 @@ namespace RPGHeroes.Hero
 
         public Hero(string name)
         {
-            this.name = name;
-            level = 1;
+            this.heroName = name;
+            heroLevel = 1;
         }
         public int LevelUp(int level)
         {
             level++;
-            attributes.IncreaseAttributes();
+            heroAttributes.IncreaseAttributes();
             return level;
         }
         public void EquipWeapon(string weapon)
