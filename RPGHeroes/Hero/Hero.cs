@@ -36,6 +36,7 @@ namespace RPGHeroes.Hero
         public int LevelUp(int level)
         {
             level++;
+            attributes.IncreaseAttributes();
             return level;
         }
         public void EquipWeapon(string weapon)

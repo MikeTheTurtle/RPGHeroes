@@ -10,6 +10,7 @@ namespace RPGHeroes.Hero.RPG_Classes
     {
         public Mage(string name) : base(name)
         {
+            attributes = new(strength: 1, dexterity: 1, intelligence: 8, incStrength: 1, incDexterity: 1, incIntelligence: 5);
         }
     }
 }

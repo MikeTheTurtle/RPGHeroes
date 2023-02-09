@@ -10,6 +10,7 @@ namespace RPGHeroes.Hero.RPG_Classes
     {
         public Warrior(string name) : base(name)
         {
+            attributes = new(strength: 5, dexterity: 2, intelligence: 1, incStrength: 3, incDexterity: 2, incIntelligence: 1);
         }
     }
 }
