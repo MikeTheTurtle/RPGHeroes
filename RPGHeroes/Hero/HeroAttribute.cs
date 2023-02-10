@@ -10,9 +10,9 @@ namespace RPGHeroes.Hero
     {
         /* Through public get-ers but private set-ers, we can allow other code (Hero.cs)
         * to read the received values while restricting its ability to modify them */
-        public int strength { get; private set; }
-        public int dexterity { get; private set; }
-        public int intelligence { get; private set; }
+        public int Strength { get; private set; }
+        public int Dexterity { get; private set; }
+        public int Intelligence { get; private set; }
 
         // Declaring private variables used for increasing attributes
         private int incStrength;
@@ -23,9 +23,9 @@ namespace RPGHeroes.Hero
         public HeroAttribute(int strength, int dexterity, int intelligence,
             int incStrength, int incDexterity, int incIntelligence)
         {
-            this.strength = strength;
-            this.dexterity = dexterity;
-            this.intelligence = intelligence;
+            this.Strength = strength;
+            this.Dexterity = dexterity;
+            this.Intelligence = intelligence;
 
             this.incStrength = incStrength;
             this.incDexterity = incDexterity;
@@ -34,9 +34,9 @@ namespace RPGHeroes.Hero
 
         public void IncreaseAttributes()
         {
-            strength += incStrength;
-            dexterity += incDexterity;
-            intelligence += incIntelligence;
+            Strength += incStrength;
+            Dexterity += incDexterity;
+            Intelligence += incIntelligence;
         }
     }
 }

@@ -24,7 +24,7 @@ namespace RPGHeroes.Hero
             Legs
         }
 
-        protected Dictionary<equipmentType, string> equipment = new();
+        protected Dictionary<equipmentType, string> equippedItems = new();
         protected List<string> validWeaponTypes = new List<string>();
         protected List<string> validArmorTypes = new List<string>();
 
@@ -41,13 +41,13 @@ namespace RPGHeroes.Hero
         }
         public void EquipWeapon(string weapon)
         {
-            equipment.Add(equipmentType.Weapon, weapon);
+            equippedItems.Add(equipmentType.Weapon, weapon);
         }
         public void EquipArmor(string armor)
         {
-            equipment.Add(equipmentType.Head, armor);
-            equipment.Add(equipmentType.Chest, armor);
-            equipment.Add(equipmentType.Legs, armor);
+            equippedItems.Add(equipmentType.Head, armor);
+            equippedItems.Add(equipmentType.Chest, armor);
+            equippedItems.Add(equipmentType.Legs, armor);
         }
         public void CalculateDamage()
         {

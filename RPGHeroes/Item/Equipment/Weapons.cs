@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPGHeroes.Item.Equipment
 {
-    public class Weapons
+    public class Weapons : Item
     {
         protected enum weaponType
         {

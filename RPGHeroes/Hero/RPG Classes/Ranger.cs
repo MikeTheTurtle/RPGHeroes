@@ -11,6 +11,11 @@ namespace RPGHeroes.Hero.RPG_Classes
         public Ranger(string name) : base(name)
         {
             heroAttributes = new(strength: 1, dexterity: 7, intelligence: 1, incStrength: 1, incDexterity: 5, incIntelligence: 1);
+
+            validWeaponTypes.Add("Bow");
+
+            validArmorTypes.Add("Leather");
+            validArmorTypes.Add("Mail");
         }
     }
 }

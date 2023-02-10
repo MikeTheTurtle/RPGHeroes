@@ -13,10 +13,10 @@ namespace RPGHeroes.Item
 
         protected enum itemSlot
         {
-            Weapon,
-            Head,
-            Chest,
-            Legs
+            WeaponSlot,
+            HeadSlot,
+            ChestSlot,
+            LegsSlot
         }
 
     }

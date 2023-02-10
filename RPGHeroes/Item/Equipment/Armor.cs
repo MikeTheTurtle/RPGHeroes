@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RPGHeroes.Item.Equipment
 {
-    public class Armor
+    public class Armor : Item
     {
         protected enum armorType
         {
