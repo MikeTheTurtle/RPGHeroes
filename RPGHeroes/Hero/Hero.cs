@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPGHeroes.Item;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
@@ -8,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace RPGHeroes.Hero
 {
-    public abstract class Hero
+   public abstract class Hero
     {
         protected string heroName;
         protected int heroLevel;
@@ -16,17 +17,11 @@ namespace RPGHeroes.Hero
         public int Level { get => heroLevel; set => heroLevel = value; }
 
         protected HeroAttribute heroAttributes;
-        protected enum equipmentType
-        {
-            Weapon,
-            Head,
-            Chest,
-            Legs
-        }
+  
 
-        protected Dictionary<equipmentType, string> equippedItems = new();
-        protected List<string> validWeaponTypes = new List<string>();
-        protected List<string> validArmorTypes = new List<string>();
+        protected Dictionary<itemSlot, heroEquipmentType> equippedItems = new();
+        protected List<weaponType> validWeaponTypes = new List<weaponType>();
+        protected List<armorType> validArmorTypes = new List<armorType>();
 
         public Hero(string name)
         {
@@ -39,15 +34,15 @@ namespace RPGHeroes.Hero
             heroAttributes.IncreaseAttributes();
             return level;
         }
-        public void EquipWeapon(string weapon)
+        public void EquipWeapon(heroEquipmentType weapon)
         {
-            equippedItems.Add(equipmentType.Weapon, weapon);
+            equippedItems.Add(itemSlot.Weapon, heroEquipmentType.Weapon);
         }
-        public void EquipArmor(string armor)
+        public void EquipArmor(heroEquipmentType armor)
         {
-            equippedItems.Add(equipmentType.Head, armor);
-            equippedItems.Add(equipmentType.Chest, armor);
-            equippedItems.Add(equipmentType.Legs, armor);
+            equippedItems.Add(itemSlot.Head, heroEquipmentType.Head);
+            equippedItems.Add(itemSlot.Chest, heroEquipmentType.Chest);
+            equippedItems.Add(itemSlot.Legs, heroEquipmentType.Legs);
         }
         public void CalculateDamage()
         {

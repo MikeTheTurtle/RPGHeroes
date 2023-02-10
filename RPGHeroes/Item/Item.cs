@@ -11,13 +11,6 @@ namespace RPGHeroes.Item
         protected string itemName;
         protected int requiredLevel;
 
-        protected enum itemSlot
-        {
-            WeaponSlot,
-            HeadSlot,
-            ChestSlot,
-            LegsSlot
-        }
-
+        protected itemSlot slot;
     }
 }

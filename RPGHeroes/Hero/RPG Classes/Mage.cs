@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPGHeroes.Item.Equipment;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,10 +13,10 @@ namespace RPGHeroes.Hero.RPG_Classes
         {
             heroAttributes = new(strength: 1, dexterity: 1, intelligence: 8, incStrength: 1, incDexterity: 1, incIntelligence: 5);
 
-            validWeaponTypes.Add("Staff");
-            validWeaponTypes.Add("Wand");
+            validWeaponTypes.Add(weaponType.Staves);
+            validWeaponTypes.Add(weaponType.Wands);
 
-            validArmorTypes.Add("Cloth");
+            validArmorTypes.Add(armorType.Cloth);
         }
     }
 }

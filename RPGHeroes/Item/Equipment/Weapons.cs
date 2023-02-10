@@ -8,16 +8,7 @@ namespace RPGHeroes.Item.Equipment
 {
     public class Weapons : Item
     {
-        protected enum weaponType
-        {
-            Axes,
-            Bows,
-            Daggers,
-            Hammers,
-            Staves,
-            Swords,
-            Wands
-        }
+        protected weaponType weapon;
 
         protected int weaponDamage;
     }

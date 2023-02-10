@@ -9,13 +9,7 @@ namespace RPGHeroes.Item.Equipment
 {
     public class Armor : Item
     {
-        protected enum armorType
-        {
-            Cloth,
-            Leather,
-            Mail,
-            Plate
-        }
+        protected armorType armorType;
 
         protected HeroAttribute armorAttributes;
     }

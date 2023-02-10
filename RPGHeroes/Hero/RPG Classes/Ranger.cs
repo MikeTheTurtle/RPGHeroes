@@ -12,10 +12,10 @@ namespace RPGHeroes.Hero.RPG_Classes
         {
             heroAttributes = new(strength: 1, dexterity: 7, intelligence: 1, incStrength: 1, incDexterity: 5, incIntelligence: 1);
 
-            validWeaponTypes.Add("Bow");
+            validWeaponTypes.Add(weaponType.Bows);
 
-            validArmorTypes.Add("Leather");
-            validArmorTypes.Add("Mail");
+            validArmorTypes.Add(armorType.Leather);
+            validArmorTypes.Add(armorType.Mail);
         }
     }
 }
