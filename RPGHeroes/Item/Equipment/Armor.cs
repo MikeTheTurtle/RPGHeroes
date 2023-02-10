@@ -11,6 +11,14 @@ namespace RPGHeroes.Item.Equipment
     {
         protected armorType armorType;
 
-        protected HeroAttribute armorAttributes;
+        protected HeroAttribute armorAttribute;
+
+        public Armor(string name, int level, itemSlot slot, HeroAttribute attributes)
+        {
+            itemName = name;
+            requiredLevel = level;
+            itemSlot = slot;
+            armorAttribute = attributes;
+        }
     }
 }

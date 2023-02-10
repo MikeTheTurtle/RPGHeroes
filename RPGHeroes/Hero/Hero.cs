@@ -18,8 +18,7 @@ namespace RPGHeroes.Hero
 
         protected HeroAttribute heroAttributes;
   
-
-        protected Dictionary<itemSlot, heroEquipmentType> equippedItems = new();
+        protected Dictionary<itemSlot, heroEquipment> equippedItems = new();
         protected List<weaponType> validWeaponTypes = new List<weaponType>();
         protected List<armorType> validArmorTypes = new List<armorType>();
 
@@ -34,15 +33,15 @@ namespace RPGHeroes.Hero
             heroAttributes.IncreaseAttributes();
             return level;
         }
-        public void EquipWeapon(heroEquipmentType weapon)
+        public void EquipWeapon(heroEquipment weapon)
         {
-            equippedItems.Add(itemSlot.Weapon, heroEquipmentType.Weapon);
+            equippedItems.Add(itemSlot.Weapon, heroEquipment.Weapon);
         }
-        public void EquipArmor(heroEquipmentType armor)
+        public void EquipArmor(heroEquipment armor)
         {
-            equippedItems.Add(itemSlot.Head, heroEquipmentType.Head);
-            equippedItems.Add(itemSlot.Chest, heroEquipmentType.Chest);
-            equippedItems.Add(itemSlot.Legs, heroEquipmentType.Legs);
+            equippedItems.Add(itemSlot.Head, heroEquipment.Head);
+            equippedItems.Add(itemSlot.Chest, heroEquipment.Chest);
+            equippedItems.Add(itemSlot.Legs, heroEquipment.Legs);
         }
         public void CalculateDamage()
         {

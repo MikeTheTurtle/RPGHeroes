@@ -11,6 +11,6 @@ namespace RPGHeroes.Item
         protected string itemName;
         protected int requiredLevel;
 
-        protected itemSlot slot;
+        protected itemSlot itemSlot;
     }
 }
