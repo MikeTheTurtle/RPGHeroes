@@ -15,10 +15,10 @@ namespace RPGHeroes.Hero
         public int Intelligence { get; private set; }
 
         // Declaring private variables used for increasing attributes
-        private int incStrength;
-        private int incDexterity;
-        private int incIntelligence;
-           
+        public int IncStrength { get; private set; }
+        public int IncDexterity { get; private set; }
+        public int IncIntelligence { get; private set; }
+
         // Ctor
         public HeroAttribute(int strength, int dexterity, int intelligence,
             int incStrength, int incDexterity, int incIntelligence)
@@ -27,16 +27,16 @@ namespace RPGHeroes.Hero
             this.Dexterity = dexterity;
             this.Intelligence = intelligence;
 
-            this.incStrength = incStrength;
-            this.incDexterity = incDexterity;
-            this.incIntelligence = incIntelligence;
+            this.IncStrength = incStrength;
+            this.IncDexterity = incDexterity;
+            this.IncIntelligence = incIntelligence;
         }
 
         public void IncreaseAttributes()
         {
-            Strength += incStrength;
-            Dexterity += incDexterity;
-            Intelligence += incIntelligence;
+            Strength += IncStrength;
+            Dexterity += IncDexterity;
+            Intelligence += IncIntelligence;
         }
     }
 }

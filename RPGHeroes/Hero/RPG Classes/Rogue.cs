@@ -15,7 +15,6 @@ namespace RPGHeroes.Hero.RPG_Classes
             validWeaponTypes.Add(weaponType.Daggers);
             validWeaponTypes.Add(weaponType.Swords);
 
-
             validArmorTypes.Add(armorType.Leather);
             validArmorTypes.Add(armorType.Mail);
         }

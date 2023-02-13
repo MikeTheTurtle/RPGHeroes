@@ -18,7 +18,9 @@ namespace RPGHeroes.Hero
 
         protected HeroAttribute heroAttributes;
   
-        protected Dictionary<itemSlot, heroEquipment> equippedItems = new();
+        protected Dictionary<itemSlot, heroEquipment> equippedItems;
+        public Dictionary<itemSlot, heroEquipment> EquippedItems { get => equippedItems; set => equippedItems = value; }
+
         protected List<weaponType> validWeaponTypes = new List<weaponType>();
         protected List<armorType> validArmorTypes = new List<armorType>();
 
@@ -26,30 +28,43 @@ namespace RPGHeroes.Hero
         {
             this.heroName = name;
             heroLevel = 1;
+
+            equippedItems = new();
         }
-        public int LevelUp(int level)
+        public void LevelUp(int amountOfLevels)
         {
-            level++;
-            heroAttributes.IncreaseAttributes();
-            return level;
+            heroLevel += amountOfLevels;
+
+            for (int i = 0; i < amountOfLevels; i++)
+            {
+                heroAttributes.IncreaseAttributes();
+            }
         }
-        public void EquipWeapon(heroEquipment weapon)
+        public void EquipWeapon(itemSlot slot, heroEquipment weapon)
         {
-            equippedItems.Add(itemSlot.Weapon, heroEquipment.Weapon);
+            equippedItems.Add(slot, weapon);
         }
-        public void EquipArmor(heroEquipment armor)
+        public void EquipArmor(itemSlot slot, heroEquipment armor)
         {
-            equippedItems.Add(itemSlot.Head, heroEquipment.Head);
-            equippedItems.Add(itemSlot.Chest, heroEquipment.Chest);
-            equippedItems.Add(itemSlot.Legs, heroEquipment.Legs);
+            if (equippedItems.ContainsKey(slot))
+            {
+                equippedItems.Remove(slot);
+                equippedItems.Add(slot, armor);
+            }
+            else
+            {
+                equippedItems.Add(slot, armor);
+            }
         }
         public void CalculateDamage()
         {
 
         }
-        public void CalculateAttributes()
+        public void CalculateTotalAttributes()
         {
-
+            heroAttributes = new(heroAttributes.Strength, heroAttributes.Dexterity, heroAttributes.Intelligence,
+                heroAttributes.IncStrength, heroAttributes.IncDexterity, heroAttributes.IncIntelligence);
+            Console.WriteLine(heroAttributes.Intelligence);
         }
 
         /*public string DisplayHeroInfo(string info)
