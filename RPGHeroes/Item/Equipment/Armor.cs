@@ -13,11 +13,12 @@ namespace RPGHeroes.Item.Equipment
 
         protected HeroAttribute armorAttributes;
 
-        public Armor(string name, int level, itemSlot slot, HeroAttribute attributes)
+        public Armor(string name, int level, itemSlot slot, armorType type, HeroAttribute attributes)
         {
             itemName = name;
             requiredLevel = level;
             itemSlot = slot;
+            armorType = type;
             armorAttributes = new(attributes.Strength, attributes.Dexterity, attributes.Intelligence,
                 attributes.IncStrength, attributes.IncDexterity, attributes.IncIntelligence);
         }

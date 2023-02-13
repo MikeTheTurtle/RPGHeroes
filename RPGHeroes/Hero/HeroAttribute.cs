@@ -8,13 +8,12 @@ namespace RPGHeroes.Hero
 {
     public class HeroAttribute
     {
-        /* Through public get-ers but private set-ers, we can allow other code (Hero.cs)
-        * to read the received values while restricting its ability to modify them */
+        /* Through public get-ers but private set-ers, we can allow other code to
+        * read the received values while restricting its ability to modify them */
         public int Strength { get; private set; }
         public int Dexterity { get; private set; }
         public int Intelligence { get; private set; }
 
-        // Declaring private variables used for increasing attributes
         public int IncStrength { get; private set; }
         public int IncDexterity { get; private set; }
         public int IncIntelligence { get; private set; }

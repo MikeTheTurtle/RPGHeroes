@@ -13,23 +13,21 @@ namespace RPGHeroes.Hero
     {
         protected string heroName;
         protected int heroLevel;
+        protected Dictionary<itemSlot, heroEquipment> heroEquippedItems;
         public string HeroName { get => heroName; set => heroName = value; }
-        public int Level { get => heroLevel; set => heroLevel = value; }
-
-        protected HeroAttribute heroAttributes;
-  
-        protected Dictionary<itemSlot, heroEquipment> equippedItems;
-        public Dictionary<itemSlot, heroEquipment> EquippedItems { get => equippedItems; set => equippedItems = value; }
+        public int HeroLevel { get => heroLevel; set => heroLevel = value; }
+        public Dictionary<itemSlot, heroEquipment> HeroEquippedItems { get => heroEquippedItems; set => heroEquippedItems = value; }
 
         protected List<weaponType> validWeaponTypes = new List<weaponType>();
         protected List<armorType> validArmorTypes = new List<armorType>();
+
+        protected HeroAttribute heroAttributes;
 
         public Hero(string name)
         {
             this.heroName = name;
             heroLevel = 1;
-
-            equippedItems = new();
+            heroEquippedItems = new();
         }
         public void LevelUp(int amountOfLevels)
         {
@@ -42,18 +40,26 @@ namespace RPGHeroes.Hero
         }
         public void EquipWeapon(itemSlot slot, heroEquipment weapon)
         {
-            equippedItems.Add(slot, weapon);
-        }
-        public void EquipArmor(itemSlot slot, heroEquipment armor)
-        {
-            if (equippedItems.ContainsKey(slot))
+            if (heroEquippedItems.ContainsKey(slot))
             {
-                equippedItems.Remove(slot);
-                equippedItems.Add(slot, armor);
+                heroEquippedItems.Remove(slot);
+                heroEquippedItems.Add(slot, weapon);
             }
             else
             {
-                equippedItems.Add(slot, armor);
+                heroEquippedItems.Add(slot, weapon);
+            }
+        }
+        public void EquipArmor(itemSlot slot, heroEquipment armor)
+        {
+            if (heroEquippedItems.ContainsKey(slot))
+            {
+                heroEquippedItems.Remove(slot);
+                heroEquippedItems.Add(slot, armor);
+            }
+            else
+            {
+                heroEquippedItems.Add(slot, armor);
             }
         }
         public void CalculateDamage()
@@ -62,9 +68,7 @@ namespace RPGHeroes.Hero
         }
         public void CalculateTotalAttributes()
         {
-            heroAttributes = new(heroAttributes.Strength, heroAttributes.Dexterity, heroAttributes.Intelligence,
-                heroAttributes.IncStrength, heroAttributes.IncDexterity, heroAttributes.IncIntelligence);
-            Console.WriteLine(heroAttributes.Intelligence);
+           
         }
 
         /*public string DisplayHeroInfo(string info)
