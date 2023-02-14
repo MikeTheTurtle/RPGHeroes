@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RPGHeroes.Hero;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,7 +11,17 @@ namespace RPGHeroes.Item.Equipment
     {
         protected int weaponDamage;
 
+        protected itemSlot slot = itemSlot.Weapon;
+
         protected weaponType weaponType;
         public weaponType WeaponType { get => weaponType; set => weaponType = value; }
+        
+        public Weapons(string name, int reqLevel, weaponType type, int damage)
+        {
+            itemName = name;
+            requiredLevel = reqLevel;
+            weaponType = type;
+            weaponDamage = damage;
+        }
     }
 }

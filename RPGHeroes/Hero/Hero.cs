@@ -20,9 +20,6 @@ namespace RPGHeroes.Hero
         protected List<weaponType> validWeaponTypes = new List<weaponType>();
         protected List<armorType> validArmorTypes = new List<armorType>();
 
-        protected Weapons weaponObject;
-        protected Armor armorObject;
-
         public string HeroName { get => heroName; set => heroName = value; }
         public int HeroLevel { get => heroLevel; set => heroLevel = value; }
 
@@ -58,26 +55,21 @@ namespace RPGHeroes.Hero
         }
         public void EquipArmor(Armor armor)
         {
-            if (heroEquippedArmor[armor.ItemSlot] != null)
-            {
-                heroEquippedArmor.Remove(armor.ItemSlot);
-            }
-
-            if (validArmorTypes.Contains(armor.ArmorType))
-            {
-                heroEquippedArmor.Add(armor.ItemSlot, armor);
-            }
-            else if (armor.RequiredLevel > heroLevel)
+            if (armor.RequiredLevel > heroLevel)
             {
                 Console.WriteLine("Too low level to equip this armor!");
             }
-            else
+            else if (!validArmorTypes.Contains(armor.ArmorType))
             {
                 Console.WriteLine("Cannot equip armor of this type!");
             }
+            else
+            {
+                heroEquippedArmor.Remove(armor.ItemSlot);
+                heroEquippedArmor.Add(armor.ItemSlot, armor);
+            }
          
             Console.WriteLine(heroEquippedArmor.Count());
-
         }
         public void CalculateDamage()
         {
