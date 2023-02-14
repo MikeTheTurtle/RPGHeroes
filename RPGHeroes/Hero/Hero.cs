@@ -1,4 +1,5 @@
 ﻿using RPGHeroes.Item;
+using RPGHeroes.Item.Equipment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,37 +16,21 @@ namespace RPGHeroes.Hero
         protected int heroLevel;
         protected HeroAttribute heroAttributes;
 
-        protected Dictionary<itemSlot, heroEquipment> heroEquippedItems;
+        protected Dictionary<itemSlot, Armor> heroEquippedArmor;
         protected List<weaponType> validWeaponTypes = new List<weaponType>();
         protected List<armorType> validArmorTypes = new List<armorType>();
 
-        private weaponType[] arrayOfWeaponTypes;
-        private armorType[] arrayOfArmorTypes;
-
-        private bool equippableItemsDefined = false;
+        protected Weapons weaponObject;
+        protected Armor armorObject;
 
         public string HeroName { get => heroName; set => heroName = value; }
         public int HeroLevel { get => heroLevel; set => heroLevel = value; }
-        public Dictionary<itemSlot, heroEquipment> HeroEquippedItems { get => heroEquippedItems; set => heroEquippedItems = value; }
 
         public Hero(string name)
         {
             this.heroName = name;
             heroLevel = 1;
-            heroEquippedItems = new();
-        }
-
-        public void DefineEquippableItems()
-        {
-            for (int i = 0; i < validWeaponTypes.Count; i++)
-            {
-                arrayOfWeaponTypes = validWeaponTypes.ToArray();
-            }
-
-            for (int i = 0; i < validArmorTypes.Count; i++)
-            {
-                arrayOfArmorTypes = validArmorTypes.ToArray();
-            }
+            heroEquippedArmor = new();
         }
         public void LevelUp(int amountOfLevels)
         {
@@ -56,74 +41,43 @@ namespace RPGHeroes.Hero
                 heroAttributes.IncreaseAttributes();
             }
         }
-        public void EquipWeapon(itemSlot slot, heroEquipment weapon)
+        public void EquipWeapon(Weapons weapon)
         {
-            if (!equippableItemsDefined)
+            if (validWeaponTypes.Contains(weapon.WeaponType))
             {
-                DefineEquippableItems();
-                equippableItemsDefined = true;
-            }
 
-            for (int i = 0; i <= validWeaponTypes.Count; i++)
+            }
+            else if (weapon.RequiredLevel > heroLevel)
             {
-                if (!validWeaponTypes.Contains(arrayOfWeaponTypes.ElementAt(i)))
-                {
-                    {
-                        Console.WriteLine("Cannot equip items of this weapon type!");
-                    }
-                }
-                else if (1 == 3)
-                {
-                    Console.WriteLine("Too low level to equip this item!");
-                }
-                else
-                {
-                    if (heroEquippedItems.ContainsKey(slot))
-                    {
-                        heroEquippedItems.Remove(slot);
-                        heroEquippedItems.Add(slot, weapon);
-                    }
-                    else
-                    {
-                        heroEquippedItems.Add(slot, weapon);
-                    }
-                }
-
-                Console.WriteLine(heroEquippedItems.Count());
+                Console.WriteLine("Too low level to equip this weapon!");
             }
+            else
+            {
+                Console.WriteLine("Cannot equip weapons of this type!");
+            }     
         }
-        public void EquipArmor(itemSlot slot, heroEquipment armor)
+        public void EquipArmor(Armor armor)
         {
-            if (!equippableItemsDefined)
+            if (heroEquippedArmor[armor.ItemSlot] != null)
             {
-                DefineEquippableItems();
-                equippableItemsDefined = true;
+                heroEquippedArmor.Remove(armor.ItemSlot);
             }
 
-            for (int i = 0; i < validArmorTypes.Count; i++)
+            if (validArmorTypes.Contains(armor.ArmorType))
             {
-                if (validArmorTypes.Contains(arrayOfArmorTypes.ElementAt(i)) == true)
-                {
-                    if (heroEquippedItems.ContainsKey(slot))
-                    {
-                        heroEquippedItems.Remove(slot);
-                        heroEquippedItems.Add(slot, armor);
-                    }
-                    else
-                    {
-                        heroEquippedItems.Add(slot, armor);
-                    }
-                }
-                else if (1 == 3)
-                {
-                    Console.WriteLine("Too low level to equip this item!");
-                }
-                else
-                {
-                    Console.WriteLine("Cannot equip armor of this type!");
-                }
-                Console.WriteLine(heroEquippedItems.Count());
+                heroEquippedArmor.Add(armor.ItemSlot, armor);
             }
+            else if (armor.RequiredLevel > heroLevel)
+            {
+                Console.WriteLine("Too low level to equip this armor!");
+            }
+            else
+            {
+                Console.WriteLine("Cannot equip armor of this type!");
+            }
+         
+            Console.WriteLine(heroEquippedArmor.Count());
+
         }
         public void CalculateDamage()
         {

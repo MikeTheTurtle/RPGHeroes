@@ -8,8 +8,9 @@ namespace RPGHeroes.Item.Equipment
 {
     public class Weapons : Item
     {
-        protected weaponType weaponType;
-
         protected int weaponDamage;
+
+        protected weaponType weaponType;
+        public weaponType WeaponType { get => weaponType; set => weaponType = value; }
     }
 }

@@ -9,9 +9,10 @@ namespace RPGHeroes.Item.Equipment
 {
     public class Armor : Item
     {
-        protected armorType armorType;
-
         protected HeroAttribute armorAttributes;
+
+        protected armorType armorType;
+        public armorType ArmorType { get => armorType; set => armorType = value; }
 
         public Armor(string name, int reqLevel, itemSlot slot, armorType type, HeroAttribute attributes)
         {
