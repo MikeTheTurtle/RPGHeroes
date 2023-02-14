@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Reflection.Metadata;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -40,18 +41,18 @@ namespace RPGHeroes.Hero
         }
         public void EquipWeapon(Weapons weapon)
         {
-            if (validWeaponTypes.Contains(weapon.WeaponType))
-            {
-
-            }
-            else if (weapon.RequiredLevel > heroLevel)
+            if (weapon.RequiredLevel > heroLevel)
             {
                 Console.WriteLine("Too low level to equip this weapon!");
             }
-            else
+            else if (!validWeaponTypes.Contains(weapon.WeaponType))
             {
                 Console.WriteLine("Cannot equip weapons of this type!");
-            }     
+            }
+            else
+            {
+                Console.WriteLine("Weapon equipped!");
+            }
         }
         public void EquipArmor(Armor armor)
         {
@@ -68,8 +69,6 @@ namespace RPGHeroes.Hero
                 heroEquippedArmor.Remove(armor.ItemSlot);
                 heroEquippedArmor.Add(armor.ItemSlot, armor);
             }
-         
-            Console.WriteLine(heroEquippedArmor.Count());
         }
         public void CalculateDamage()
         {
@@ -77,7 +76,28 @@ namespace RPGHeroes.Hero
         }
         public void CalculateTotalAttributes()
         {
-           
+            int totalStrength = 0;
+            int totalDexterity = 0;
+            int totalIntelligence = 0;
+
+            Armor[] currentArmor = heroEquippedArmor.Values.ToArray();
+
+            for (int i = 0; i < currentArmor.Length; i++)
+            {
+                totalStrength += currentArmor.ElementAt(i).ArmorAttributes.Strength;
+                totalDexterity += currentArmor.ElementAt(i).ArmorAttributes.Dexterity;
+                totalIntelligence += currentArmor.ElementAt(i).ArmorAttributes.Intelligence;
+            }
+
+            totalStrength += heroAttributes.Strength;
+            totalDexterity += heroAttributes.Dexterity;
+            totalIntelligence += heroAttributes.Intelligence;
+
+            HeroAttribute totalAttributes = new(totalStrength, totalDexterity, totalIntelligence, 0, 0, 0);
+
+            Console.WriteLine(totalAttributes.Strength);
+            Console.WriteLine(totalAttributes.Dexterity);
+            Console.WriteLine(totalAttributes.Intelligence);
         }
 
         /*public string DisplayHeroInfo(string info)
