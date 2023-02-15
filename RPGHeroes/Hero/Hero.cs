@@ -1,5 +1,4 @@
-﻿using RPGHeroes.Damage_State_Machine;
-using RPGHeroes.Item;
+﻿using RPGHeroes.Item;
 using RPGHeroes.Item.Equipment;
 using System;
 using System.Collections.Generic;
@@ -16,30 +15,29 @@ namespace RPGHeroes.Hero
     {
         protected string heroName;
         protected int heroLevel;
-
         protected HeroAttribute heroLevelAttributes;
         protected int damagingAttribute;
 
         protected Weapons heroEquippedWeapon;
         protected Dictionary<itemSlot, Armor> heroEquippedArmor;
-
         protected List<weaponType> validWeaponTypes = new List<weaponType>();
         protected List<armorType> validArmorTypes = new List<armorType>();
 
         public string HeroName { get => heroName; set => heroName = value; }
-        //public int HeroLevel { get => heroLevel; set => heroLevel = value; }
+        public int HeroLevel { get => heroLevel; set => heroLevel = value; }
+        public HeroAttribute HeroLevelAttributes { get => heroLevelAttributes; set => heroLevelAttributes = value; }
         public int DamagingAttribute { get => damagingAttribute; set => damagingAttribute = value; }
 
         public Hero(string name)
         {
             this.heroName = name;
-            heroLevel = 1;
+            HeroLevel = 1;
             heroEquippedArmor = new();
         }
         public void LevelUp()
         {
-            heroLevel++;
-            heroLevelAttributes.IncreaseAttributes();
+            HeroLevel++;
+            HeroLevelAttributes.IncreaseAttributes();
         }
         public void EquipWeapon(Weapons weapon)
         {
@@ -75,49 +73,12 @@ namespace RPGHeroes.Hero
 
             CalculateTotalAttributes();
         }
-        public void CalculateDamage()
-        {
-            double heroDamage = 0;
+        public abstract void CalculateDamage();
+        public abstract void CalculateTotalAttributes();
 
-            if (heroEquippedWeapon == null)
-            {
-                heroDamage = 1 * (1 + (double)damagingAttribute / 100);
-            }
-            else
-            {
-                heroDamage = heroEquippedWeapon.WeaponDamage * (1 + (double)damagingAttribute / 100);
-            }
-            Console.WriteLine(heroDamage);
+        public string DisplayHeroInfo(string info)
+        {
+            return info;
         }
-        public void CalculateTotalAttributes()
-        {
-            int totalStrength = 0;
-            int totalDexterity = 0;
-            int totalIntelligence = 0;
-
-            Armor[] currentArmor = heroEquippedArmor.Values.ToArray();
-
-            for (int i = 0; i < currentArmor.Length; i++)
-            {
-                totalStrength += currentArmor.ElementAt(i).ArmorAttributes.Strength;
-                totalDexterity += currentArmor.ElementAt(i).ArmorAttributes.Dexterity;
-                totalIntelligence += currentArmor.ElementAt(i).ArmorAttributes.Intelligence;
-            }
-
-            totalStrength += heroLevelAttributes.Strength;
-            totalDexterity += heroLevelAttributes.Dexterity;
-            totalIntelligence += heroLevelAttributes.Intelligence;
-
-            HeroAttribute totalAttributes = new(totalStrength, totalDexterity, totalIntelligence, 0, 0, 0);
-
-            Console.WriteLine(totalAttributes.Strength);
-            Console.WriteLine(totalAttributes.Dexterity);
-            Console.WriteLine(totalAttributes.Intelligence);
-        }
-
-        /*public string DisplayHeroInfo(string info)
-        {
-
-        }*/
     }
 }
