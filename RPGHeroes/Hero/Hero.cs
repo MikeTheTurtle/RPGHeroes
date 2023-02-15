@@ -1,5 +1,4 @@
-﻿using RPGHeroes.Item;
-using RPGHeroes.Item.Equipment;
+﻿using RPGHeroes.Item.Equipment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,30 +13,31 @@ namespace RPGHeroes.Hero
    public abstract class Hero
     {
         protected string heroName;
+        protected string heroClass;
         protected int heroLevel;
         protected HeroAttribute heroLevelAttributes;
-        protected int damagingAttribute;
+        protected int heroDamagingAttribute;
+        protected string heroDetails;
 
         protected Weapons heroEquippedWeapon;
         protected Dictionary<itemSlot, Armor> heroEquippedArmor;
         protected List<weaponType> validWeaponTypes = new List<weaponType>();
         protected List<armorType> validArmorTypes = new List<armorType>();
 
-        public string HeroName { get => heroName; set => heroName = value; }
-        public int HeroLevel { get => heroLevel; set => heroLevel = value; }
         public HeroAttribute HeroLevelAttributes { get => heroLevelAttributes; set => heroLevelAttributes = value; }
-        public int DamagingAttribute { get => damagingAttribute; set => damagingAttribute = value; }
+        public int HeroDamagingAttribute { get => heroDamagingAttribute; set => heroDamagingAttribute = value; }
+        public string HeroDetails { get => heroDetails; set => heroDetails = value; }
 
         public Hero(string name)
         {
             this.heroName = name;
-            HeroLevel = 1;
+            heroLevel = 1;
             heroEquippedArmor = new();
         }
 
         public void LevelUp()
         {
-            HeroLevel++;
+            heroLevel++;
             HeroLevelAttributes.IncreaseAttributes();
         }
 
@@ -77,13 +77,23 @@ namespace RPGHeroes.Hero
             CalculateTotalAttributes();
         }
 
-        public abstract void CalculateDamage();
+        public abstract double CalculateDamage();
 
-        public abstract void CalculateTotalAttributes();
+        public abstract HeroAttribute CalculateTotalAttributes();
 
-        public string DisplayHeroInfo(string info)
+        public string DisplayHeroDetails()
         {
-            return info;
+            StringBuilder heroDetails = new StringBuilder();
+
+            heroDetails.Append("Hero Name: " + heroName + "\n");
+            heroDetails.Append("Hero Class: " + heroClass + "\n");
+            heroDetails.Append("Hero Level: " + heroLevel + "\n");
+            heroDetails.Append("Total Strength: " + CalculateTotalAttributes().Strength + "\n");
+            heroDetails.Append("Total Dexterity: " + CalculateTotalAttributes().Dexterity + "\n");
+            heroDetails.Append("Total Intelligence: " + CalculateTotalAttributes().Intelligence + "\n");
+            heroDetails.Append("Weapon Damage: " + CalculateDamage() + "\n");
+
+            return heroDetails.ToString();
         }
     }
 }
