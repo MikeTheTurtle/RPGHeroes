@@ -10,7 +10,7 @@ namespace RPGHeroes.Hero.RPG_Classes
     {
         public Rogue(string name) : base(name)
         {
-            heroAttributes = new(strength: 2, dexterity: 6, intelligence: 1, incStrength: 1, incDexterity: 4, incIntelligence: 1);
+            heroLevelAttributes = new(strength: 2, dexterity: 6, intelligence: 1, incStrength: 1, incDexterity: 4, incIntelligence: 1);
 
             validWeaponTypes.Add(weaponType.Daggers);
             validWeaponTypes.Add(weaponType.Swords);
