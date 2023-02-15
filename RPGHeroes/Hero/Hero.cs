@@ -25,6 +25,7 @@ namespace RPGHeroes.Hero
         protected List<armorType> validArmorTypes = new List<armorType>();
 
         public string HeroName { get => heroName; set => heroName = value; }
+        public string HeroClass { get => heroClass; set => heroClass = value; }
         public int HeroLevel { get => heroLevel; set => heroLevel = value; }
         public HeroAttribute HeroLevelAttributes { get => heroLevelAttributes; set => heroLevelAttributes = value; }
         public int HeroDamagingAttribute { get => heroDamagingAttribute; set => heroDamagingAttribute = value; }

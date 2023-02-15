@@ -26,7 +26,6 @@ namespace RPGHeroesTest.HeroTests
             var hero = new Warrior("Maddie");
             int expectedLevel = 1;
 
-
             //Act
             int actualLevel = hero.HeroLevel;
 
