@@ -35,6 +35,7 @@ namespace RPGHeroes.Hero.RPG_Classes
 
             Console.WriteLine(heroDamage);
         }
+
         public override void CalculateTotalAttributes()
         {
             int totalStrength = HeroLevelAttributes.Strength;
@@ -57,9 +58,7 @@ namespace RPGHeroes.Hero.RPG_Classes
                 DamagingAttribute = totalAttributes.Dexterity;
             }
 
-            Console.WriteLine(totalAttributes.Strength);
             Console.WriteLine(totalAttributes.Dexterity);
-            Console.WriteLine(totalAttributes.Intelligence);
         }
     }
 }

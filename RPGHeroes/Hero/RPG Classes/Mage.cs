@@ -19,6 +19,7 @@ namespace RPGHeroes.Hero.RPG_Classes
 
             validArmorTypes.Add(armorType.Cloth);
         }
+
         public override void CalculateDamage()
         {
             double heroDamage = 0;
@@ -34,6 +35,7 @@ namespace RPGHeroes.Hero.RPG_Classes
 
             Console.WriteLine(heroDamage);
         }
+
         public override void CalculateTotalAttributes()
         {
             int totalStrength = HeroLevelAttributes.Strength;
@@ -53,8 +55,6 @@ namespace RPGHeroes.Hero.RPG_Classes
 
             DamagingAttribute = totalAttributes.Intelligence;
 
-            Console.WriteLine(totalAttributes.Strength);
-            Console.WriteLine(totalAttributes.Dexterity);
             Console.WriteLine(totalAttributes.Intelligence);
         }
     }

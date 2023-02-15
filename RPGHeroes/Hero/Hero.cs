@@ -34,11 +34,13 @@ namespace RPGHeroes.Hero
             HeroLevel = 1;
             heroEquippedArmor = new();
         }
+
         public void LevelUp()
         {
             HeroLevel++;
             HeroLevelAttributes.IncreaseAttributes();
         }
+
         public void EquipWeapon(Weapons weapon)
         {
             if (weapon.RequiredLevel > heroLevel)
@@ -55,6 +57,7 @@ namespace RPGHeroes.Hero
                 Console.WriteLine("Weapon equipped!");
             }
         }
+
         public void EquipArmor(Armor armor)
         {
             if (armor.RequiredLevel > heroLevel)
@@ -73,7 +76,9 @@ namespace RPGHeroes.Hero
 
             CalculateTotalAttributes();
         }
+
         public abstract void CalculateDamage();
+
         public abstract void CalculateTotalAttributes();
 
         public string DisplayHeroInfo(string info)
