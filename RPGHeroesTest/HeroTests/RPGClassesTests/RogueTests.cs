@@ -64,7 +64,7 @@ namespace RPGHeroesTest.HeroTests.RPGClassesTests
         }
 
         [Fact]
-        public void When_DisplayingHeroInformation_Expect_CorrectName()
+        public void When_DisplayingRogueInformation_Expect_CorrectName()
         {
             //Arrange
             var hero = new Rogue("Tyson");
