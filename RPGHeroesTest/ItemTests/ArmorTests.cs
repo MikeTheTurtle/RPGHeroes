@@ -11,8 +11,8 @@ namespace RPGHeroesTest.ItemTests
         public void When_CreatingNewArmor_Expect_CorrectName()
         {
             //Arrange
-            var armor = new Armor("I PROTEC!", 3, itemSlot.Chest, armorType.Plate, new(95, 10, 1, 0, 0, 0));
             string expectedName = "I PROTEC!";
+            var armor = new Armor(expectedName, 3, itemSlot.Chest, armorType.Plate, new(95, 10, 1, 0, 0, 0));
 
             //Act
             string actualName = armor.ItemName;

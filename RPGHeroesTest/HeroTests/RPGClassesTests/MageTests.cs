@@ -9,8 +9,8 @@ namespace RPGHeroesTest.HeroTests.RPGClassesTests
         public void When_CreatingNewMage_Expect_CorrectName()
         {
             //Arrange
-            var hero = new Mage("Alice");
             string expectedName = "Alice";
+            var hero = new Mage(expectedName);
 
             //Act
             string actualName = hero.HeroName;
@@ -61,6 +61,26 @@ namespace RPGHeroesTest.HeroTests.RPGClassesTests
 
             //Assert
             Assert.Equivalent(expectedLevelTwoAttributes, actualLevelTwoAttributes);
+        }
+
+        [Fact]
+        public void When_DisplayingHeroInformation_Expect_CorrectName()
+        {
+            //Arrange
+            var hero = new Mage("Alice");
+            string expectedState = "Hero Name: " + hero.HeroName + "\n"
+                + "Hero Class: " + hero.HeroClass + "\n"
+                + "Hero Level: " + hero.HeroLevel + "\n"
+                + "Total Strength: " + hero.CalculateTotalAttributes().Strength + "\n"
+                + "Total Dexterity: " + hero.CalculateTotalAttributes().Dexterity + "\n"
+                + "Total Intelligence: " + hero.CalculateTotalAttributes().Intelligence + "\n"
+                + "Weapon Damage: " + hero.CalculateDamage();
+
+            //Act
+            string actualName = hero.DisplayHeroDetails();
+
+            //Assert
+            Assert.Equal(expectedState, actualName);
         }
     }
 }

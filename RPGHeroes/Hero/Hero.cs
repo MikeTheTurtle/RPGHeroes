@@ -94,7 +94,7 @@ namespace RPGHeroes.Hero
             heroDetails.Append("Total Strength: " + CalculateTotalAttributes().Strength + "\n");
             heroDetails.Append("Total Dexterity: " + CalculateTotalAttributes().Dexterity + "\n");
             heroDetails.Append("Total Intelligence: " + CalculateTotalAttributes().Intelligence + "\n");
-            heroDetails.Append("Weapon Damage: " + CalculateDamage() + "\n");
+            heroDetails.Append("Weapon Damage: " + CalculateDamage());
 
             return heroDetails.ToString();
         }

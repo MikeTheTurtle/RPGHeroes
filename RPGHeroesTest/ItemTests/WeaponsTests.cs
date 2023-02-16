@@ -9,8 +9,8 @@ namespace RPGHeroesTest.ItemTests
         public void When_CreatingNewWeapon_Expect_CorrectName()
         {
             //Arrange
-            var weapon = new Weapons("I SMASH YESYES", 3, weaponType.Hammers, 15);
             string expectedName = "I SMASH YESYES";
+            var weapon = new Weapons(expectedName, 3, weaponType.Hammers, 15);
 
             //Act
             string actualName = weapon.ItemName;
