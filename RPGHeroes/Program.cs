@@ -1,18 +1,32 @@
-﻿using RPGHeroes.Hero;
-using RPGHeroes.Hero.RPG_Classes;
-using RPGHeroes.Item.Equipment;
+﻿using RPGHeroes.Custom_Exceptions;
+using System;
 
-var taynos = new Rogue("Taynos");
+namespace RPGHeroes
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            try
+            {
+                TestException(true);
+            } catch(MyCustomException ex)
+            {
+                Console.WriteLine("Custom exception: " + ex.Message);
+            } catch(Exception ex)
+            {
+                Console.WriteLine("Generic exception: " + ex.Message);
+            }
+        }
 
-var tayWpn = new Weapons("UngaBoo", 1, WeaponType.Daggers, 2);
-var tayArm1 = new Armor("Monki Hear", 1, ItemSlot.Head, ArmorType.Mail, new(1, 2, 1, 0, 0, 0));
-var tayArm2 = new Armor("Monki See", 1, ItemSlot.Chest, ArmorType.Mail, new(1, 1, 1, 0, 0, 0));
-var tayArm3 = new Armor("Monki Do", 1, ItemSlot.Legs, ArmorType.Mail, new(1, 1, 1, 0, 0, 0));
+        public static void TestException(bool throwException)
+        {
+            if (throwException)
+            {
+                throw new MyCustomException();
+            }
 
-taynos.EquipWeapon(tayWpn);
-taynos.EquipArmor(tayArm1);
-taynos.EquipArmor(tayArm2);
-taynos.EquipArmor(tayArm3);
-
-taynos.HeroDetails = taynos.DisplayHeroDetails();
-Console.WriteLine(taynos.HeroDetails);
+            throw new IndexOutOfRangeException();
+        }
+    }
+}

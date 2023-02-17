@@ -43,13 +43,13 @@ namespace RPGHeroes.Hero
             heroEquippedArmor = new();
         }
 
-        public void LevelUp()
+        public virtual void LevelUp()
         {
             heroLevel++;
             HeroLevelAttributes.IncreaseAttributes();
         }
 
-        public void EquipWeapon(Weapons weapon)
+        public virtual void EquipWeapon(Weapons weapon)
         {
             if (weapon.RequiredLevel > heroLevel)
             {
@@ -66,7 +66,7 @@ namespace RPGHeroes.Hero
             }
         }
 
-        public void EquipArmor(Armor armor)
+        public virtual void EquipArmor(Armor armor)
         {
             if (armor.RequiredLevel > heroLevel)
             {
@@ -89,7 +89,7 @@ namespace RPGHeroes.Hero
 
         public abstract HeroAttribute CalculateTotalAttributes();
 
-        public string DisplayHeroDetails()
+        public virtual string DisplayHeroDetails()
         {
             StringBuilder heroDetails = new StringBuilder();
 
