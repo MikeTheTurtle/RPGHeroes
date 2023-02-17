@@ -15,11 +15,11 @@ namespace RPGHeroes.Hero.RPG_Classes
             HeroLevelAttributes = new(strength: 2, dexterity: 6, intelligence: 1, incStrength: 1, incDexterity: 4, incIntelligence: 1);
             HeroDamagingAttribute = HeroLevelAttributes.Dexterity;
 
-            validWeaponTypes.Add(weaponType.Daggers);
-            validWeaponTypes.Add(weaponType.Swords);
+            validWeaponTypes.Add(WeaponType.Daggers);
+            validWeaponTypes.Add(WeaponType.Swords);
 
-            validArmorTypes.Add(armorType.Leather);
-            validArmorTypes.Add(armorType.Mail);
+            validArmorTypes.Add(ArmorType.Leather);
+            validArmorTypes.Add(ArmorType.Mail);
         }
 
         public override double CalculateDamage()
@@ -53,7 +53,8 @@ namespace RPGHeroes.Hero.RPG_Classes
                 totalIntelligence += currentArmor.ElementAt(i).ArmorAttributes.Intelligence;
             }
 
-            HeroAttribute totalAttributes = new(totalStrength, totalDexterity, totalIntelligence, 0, 0, 0);
+            HeroAttribute totalAttributes = new(totalStrength, totalDexterity, totalIntelligence,
+                HeroLevelAttributes.IncStrength, HeroLevelAttributes.IncDexterity, HeroLevelAttributes.IncIntelligence);
             HeroDamagingAttribute = totalAttributes.Dexterity;
 
             return totalAttributes;

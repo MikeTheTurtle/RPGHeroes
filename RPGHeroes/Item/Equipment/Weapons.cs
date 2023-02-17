@@ -11,13 +11,13 @@ namespace RPGHeroes.Item.Equipment
     {
         protected int weaponDamage;
 
-        protected itemSlot slot = itemSlot.Weapon;
+        protected ItemSlot slot = ItemSlot.Weapon;
 
-        protected weaponType weaponType;
+        protected WeaponType weaponType;
         public int WeaponDamage { get => weaponDamage; set => weaponDamage = value; }
-        public weaponType WeaponType { get => weaponType; set => weaponType = value; }
+        public WeaponType WeaponType { get => weaponType; set => weaponType = value; }
         
-        public Weapons(string name, int reqLevel, weaponType type, int wpnDamage)
+        public Weapons(string name, int reqLevel, WeaponType type, int wpnDamage)
         {
             itemName = name;
             requiredLevel = reqLevel;

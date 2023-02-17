@@ -12,7 +12,7 @@ namespace RPGHeroesTest.ItemTests
         {
             //Arrange
             string expectedName = "I PROTEC!";
-            var armor = new Armor(expectedName, 3, itemSlot.Chest, armorType.Plate, new(95, 10, 1, 0, 0, 0));
+            var armor = new Armor(expectedName, 3, ItemSlot.Chest, ArmorType.Plate, new(95, 10, 1, 0, 0, 0));
 
             //Act
             string actualName = armor.ItemName;
@@ -24,7 +24,7 @@ namespace RPGHeroesTest.ItemTests
         public void When_CreatingNewArmor_Expect_CorrectRequiredLevel()
         {
             //Arrange
-            var armor = new Armor("I PROTEC!", 3, itemSlot.Chest, armorType.Plate, new(95, 10, 1, 0, 0, 0));
+            var armor = new Armor("I PROTEC!", 3, ItemSlot.Chest, ArmorType.Plate, new(95, 10, 1, 0, 0, 0));
             int expectedRequiredLevel = 3;
 
             //Act
@@ -37,11 +37,11 @@ namespace RPGHeroesTest.ItemTests
         public void When_CreatingNewArmor_Expect_CorrectItemSlot()
         {
             //Arrange
-            var armor = new Armor("I PROTEC!", 3, itemSlot.Chest, armorType.Plate, new(95, 10, 1, 0, 0, 0));
-            itemSlot expectedItemSlot = itemSlot.Chest;
+            var armor = new Armor("I PROTEC!", 3, ItemSlot.Chest, ArmorType.Plate, new(95, 10, 1, 0, 0, 0));
+            ItemSlot expectedItemSlot = ItemSlot.Chest;
 
             //Act
-            itemSlot actualItemSlot = armor.ItemSlot;
+            ItemSlot actualItemSlot = armor.ItemSlot;
 
             //Assert
             Assert.Equal(expectedItemSlot, actualItemSlot);
@@ -50,11 +50,11 @@ namespace RPGHeroesTest.ItemTests
         public void When_CreatingNewArmor_Expect_CorrectArmorType()
         {
             //Arrange
-            var armor = new Armor("I PROTEC!", 3, itemSlot.Chest, armorType.Plate, new(95, 10, 1, 0, 0, 0));
-            armorType expectedArmorType = armorType.Plate;
+            var armor = new Armor("I PROTEC!", 3, ItemSlot.Chest, ArmorType.Plate, new(95, 10, 1, 0, 0, 0));
+            ArmorType expectedArmorType = ArmorType.Plate;
 
             //Act
-            armorType actualArmorType = armor.ArmorType;
+            ArmorType actualArmorType = armor.ArmorType;
 
             //Assert
             Assert.Equal(expectedArmorType, actualArmorType);
@@ -63,7 +63,7 @@ namespace RPGHeroesTest.ItemTests
         public void When_CreatingNewArmor_Expect_CorrectArmorAttributes()
         {
             //Arrange
-            var armor = new Armor("I PROTEC!", 3, itemSlot.Chest, armorType.Plate, new(95, 10, 1, 0, 0, 0));
+            var armor = new Armor("I PROTEC!", 3, ItemSlot.Chest, ArmorType.Plate, new(95, 10, 1, 0, 0, 0));
             HeroAttribute expectedArmorAttributes = new(95, 10, 1, 0, 0, 0);
 
             //Act

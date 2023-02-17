@@ -10,9 +10,9 @@ namespace RPGHeroes.Item
     {
         protected string itemName;
         protected int requiredLevel;
-        protected itemSlot itemSlot;
+        protected ItemSlot itemSlot;
         public string ItemName { get => itemName; set => itemName = value; }
         public int RequiredLevel { get => requiredLevel; set => requiredLevel = value; }
-        public itemSlot ItemSlot { get => itemSlot; set => itemSlot = value; }
+        public ItemSlot ItemSlot { get => itemSlot; set => itemSlot = value; }
     }
 }

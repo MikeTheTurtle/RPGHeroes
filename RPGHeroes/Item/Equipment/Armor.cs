@@ -11,11 +11,11 @@ namespace RPGHeroes.Item.Equipment
     {
         protected HeroAttribute armorAttributes;
 
-        protected armorType armorType;
+        protected ArmorType armorType;
         public HeroAttribute ArmorAttributes { get => armorAttributes; set => armorAttributes = value; }
-        public armorType ArmorType { get => armorType; set => armorType = value; }
+        public ArmorType ArmorType { get => armorType; set => armorType = value; }
 
-        public Armor(string name, int reqLevel, itemSlot slot, armorType type, HeroAttribute attributes)
+        public Armor(string name, int reqLevel, ItemSlot slot, ArmorType type, HeroAttribute attributes)
         {
             itemName = name;
             requiredLevel = reqLevel;

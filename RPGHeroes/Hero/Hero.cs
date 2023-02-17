@@ -17,18 +17,23 @@ namespace RPGHeroes.Hero
         protected int heroLevel;
         protected HeroAttribute heroLevelAttributes;
         protected int heroDamagingAttribute;
-        protected string heroDetails;
 
         protected Weapons heroEquippedWeapon;
-        protected Dictionary<itemSlot, Armor> heroEquippedArmor;
-        protected List<weaponType> validWeaponTypes = new List<weaponType>();
-        protected List<armorType> validArmorTypes = new List<armorType>();
+        protected Dictionary<ItemSlot, Armor> heroEquippedArmor;
+        protected List<WeaponType> validWeaponTypes = new List<WeaponType>();
+        protected List<ArmorType> validArmorTypes = new List<ArmorType>();
+
+        protected string heroDetails;
 
         public string HeroName { get => heroName; set => heroName = value; }
         public string HeroClass { get => heroClass; set => heroClass = value; }
         public int HeroLevel { get => heroLevel; set => heroLevel = value; }
         public HeroAttribute HeroLevelAttributes { get => heroLevelAttributes; set => heroLevelAttributes = value; }
         public int HeroDamagingAttribute { get => heroDamagingAttribute; set => heroDamagingAttribute = value; }
+        public Weapons HeroEquippedWeapon { get => heroEquippedWeapon; set => heroEquippedWeapon = value; }
+        public Dictionary<ItemSlot, Armor> HeroEquippedArmor { get => heroEquippedArmor; set => heroEquippedArmor = value; }
+        public List<WeaponType> ValidWeaponTypes { get => validWeaponTypes; set => validWeaponTypes = value; }
+        public List<ArmorType> ValidArmorTypes { get => validArmorTypes; set => validArmorTypes = value; }
         public string HeroDetails { get => heroDetails; set => heroDetails = value; }
 
         public Hero(string name)

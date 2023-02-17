@@ -10,7 +10,7 @@ namespace RPGHeroesTest.ItemTests
         {
             //Arrange
             string expectedName = "I SMASH YESYES";
-            var weapon = new Weapons(expectedName, 3, weaponType.Hammers, 15);
+            var weapon = new Weapons(expectedName, 3, WeaponType.Hammers, 15);
 
             //Act
             string actualName = weapon.ItemName;
@@ -22,7 +22,7 @@ namespace RPGHeroesTest.ItemTests
         public void When_CreatingNewWeapon_Expect_CorrectRequiredLevel()
         {
             //Arrange
-            var weapon = new Weapons("I SMASH YESYES", 3, weaponType.Hammers, 15);
+            var weapon = new Weapons("I SMASH YESYES", 3, WeaponType.Hammers, 15);
             int expectedRequiredLevel = 3;
 
             //Act
@@ -35,11 +35,11 @@ namespace RPGHeroesTest.ItemTests
         public void When_CreatingNewWeapon_Expect_CorrectItemSlot()
         {
             //Arrange
-            var weapon = new Weapons("I SMASH YESYES", 3, weaponType.Hammers, 15);
-            itemSlot expectedItemSlot = itemSlot.Weapon;
+            var weapon = new Weapons("I SMASH YESYES", 3, WeaponType.Hammers, 15);
+            ItemSlot expectedItemSlot = ItemSlot.Weapon;
 
             //Act
-            itemSlot actualItemSlot = weapon.ItemSlot;
+            ItemSlot actualItemSlot = weapon.ItemSlot;
 
             //Assert
             Assert.Equal(expectedItemSlot, actualItemSlot);
@@ -48,11 +48,11 @@ namespace RPGHeroesTest.ItemTests
         public void When_CreatingNewWeapon_Expect_CorrectWeaponType()
         {
             //Arrange
-            var weapon = new Weapons("I SMASH YESYES", 3, weaponType.Hammers, 15);
-            weaponType expectedWeaponType = weaponType.Hammers;
+            var weapon = new Weapons("I SMASH YESYES", 3, WeaponType.Hammers, 15);
+            WeaponType expectedWeaponType = WeaponType.Hammers;
 
             //Act
-            weaponType actualWeaponType = weapon.WeaponType;
+            WeaponType actualWeaponType = weapon.WeaponType;
 
             //Assert
             Assert.Equal(expectedWeaponType, actualWeaponType);
@@ -61,7 +61,7 @@ namespace RPGHeroesTest.ItemTests
         public void When_CreatingNewWeapon_Expect_CorrectWeaponDamage()
         {
             //Arrange
-            var weapon = new Weapons("I SMASH YESYES", 3, weaponType.Hammers, 15);
+            var weapon = new Weapons("I SMASH YESYES", 3, WeaponType.Hammers, 15);
             int expectedWeaponDamage = 15;
 
             //Act
