@@ -1,4 +1,5 @@
-﻿using RPGHeroes.Item.Equipment;
+﻿using RPGHeroes.Custom_Exceptions;
+using RPGHeroes.Item.Equipment;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -53,16 +54,37 @@ namespace RPGHeroes.Hero
         {
             if (weapon.RequiredLevel > heroLevel)
             {
-                Console.WriteLine("Too low level to equip this weapon!");
+                try
+                {
+                    throw new TooLowLevelException();
+                }
+                catch (TooLowLevelException ex)
+                {
+                    Console.WriteLine("Custom exception: " + ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Generic exception: " + ex.Message);
+                }
             }
             else if (!validWeaponTypes.Contains(weapon.WeaponType))
             {
-                Console.WriteLine("Cannot equip weapons of this type!");
+                try
+                {
+                    throw new WrongWeaponType();
+                }
+                catch (WrongWeaponType ex)
+                {
+                    Console.WriteLine("Custom exception: " + ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Generic exception: " + ex.Message);
+                }
             }
             else
             {
                 heroEquippedWeapon = weapon;
-                Console.WriteLine("Weapon equipped!");
             }
         }
 
@@ -70,11 +92,33 @@ namespace RPGHeroes.Hero
         {
             if (armor.RequiredLevel > heroLevel)
             {
-                Console.WriteLine("Too low level to equip this armor!");
+                try
+                {
+                    throw new TooLowLevelException();
+                }
+                catch (TooLowLevelException ex)
+                {
+                    Console.WriteLine("Custom exception: " + ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Generic exception: " + ex.Message);
+                }
             }
             else if (!validArmorTypes.Contains(armor.ArmorType))
             {
-                Console.WriteLine("Cannot equip armor of this type!");
+                try
+                {
+                    throw new WrongArmorType();
+                }
+                catch (WrongArmorType ex)
+                {
+                    Console.WriteLine("Custom exception: " + ex.Message);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Generic exception: " + ex.Message);
+                }
             }
             else
             {

@@ -1,4 +1,5 @@
-﻿using RPGHeroes.Hero;
+﻿using RPGHeroes.Custom_Exceptions;
+using RPGHeroes.Hero;
 using RPGHeroes.Hero.RPG_Classes;
 using RPGHeroes.Item.Equipment;
 

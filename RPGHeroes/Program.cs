@@ -1,32 +1,12 @@
 ﻿using RPGHeroes.Custom_Exceptions;
+using RPGHeroes.Hero.RPG_Classes;
+using RPGHeroes.Item.Equipment;
 using System;
 
-namespace RPGHeroes
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            try
-            {
-                TestException(true);
-            } catch(MyCustomException ex)
-            {
-                Console.WriteLine("Custom exception: " + ex.Message);
-            } catch(Exception ex)
-            {
-                Console.WriteLine("Generic exception: " + ex.Message);
-            }
-        }
+var hero = new Mage("Alice");
+Weapons weapon = new Weapons("I BLAST HAIHAI", 1, WeaponType.Staves, 15);
+Armor armor = new Armor("PROTEC", 1, ItemSlot.Head, ArmorType.Cloth, new(1, 1, 1, 0, 0, 0));
 
-        public static void TestException(bool throwException)
-        {
-            if (throwException)
-            {
-                throw new MyCustomException();
-            }
 
-            throw new IndexOutOfRangeException();
-        }
-    }
-}
+hero.EquipWeapon(weapon);
+hero.EquipArmor(armor);
