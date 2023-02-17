@@ -17,6 +17,8 @@ namespace RPGHeroes.Item.Equipment
         public int WeaponDamage { get => weaponDamage; set => weaponDamage = value; }
         public WeaponType WeaponType { get => weaponType; set => weaponType = value; }
         
+        //Setting up all we need to know for equipping weapons. Unlike armor, we don't parse in ItemSlot since it always
+        // automatically should default to, well, the weapon slot.
         public Weapons(string name, int reqLevel, WeaponType type, int wpnDamage)
         {
             itemName = name;

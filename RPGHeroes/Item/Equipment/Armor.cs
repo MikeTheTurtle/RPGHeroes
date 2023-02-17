@@ -15,6 +15,7 @@ namespace RPGHeroes.Item.Equipment
         public HeroAttribute ArmorAttributes { get => armorAttributes; set => armorAttributes = value; }
         public ArmorType ArmorType { get => armorType; set => armorType = value; }
 
+        //Setting up all we need to know for equipping armor
         public Armor(string name, int reqLevel, ItemSlot slot, ArmorType type, HeroAttribute attributes)
         {
             itemName = name;

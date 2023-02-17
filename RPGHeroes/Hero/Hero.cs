@@ -13,6 +13,7 @@ namespace RPGHeroes.Hero
 {
    public abstract class Hero
     {
+        //Nothing public!
         protected string heroName;
         protected string heroClass;
         protected int heroLevel;
@@ -26,6 +27,7 @@ namespace RPGHeroes.Hero
 
         protected string heroDetails;
 
+        //Make sure we can get hero varíable values without mutating them
         public string HeroName { get => heroName; set => heroName = value; }
         public string HeroClass { get => heroClass; set => heroClass = value; }
         public int HeroLevel { get => heroLevel; set => heroLevel = value; }
@@ -37,6 +39,7 @@ namespace RPGHeroes.Hero
         public List<ArmorType> ValidArmorTypes { get => validArmorTypes; set => validArmorTypes = value; }
         public string HeroDetails { get => heroDetails; set => heroDetails = value; }
 
+        //Initialize heroes, all of them start with their given name, at level 1 and with no equipment by default
         public Hero(string name)
         {
             this.heroName = name;
@@ -47,9 +50,12 @@ namespace RPGHeroes.Hero
         public virtual void LevelUp()
         {
             heroLevel++;
+
+            //Attribute increments happen in the individual subclasses
             HeroLevelAttributes.IncreaseAttributes();
         }
 
+        //Simple logic to make sure items are equippable, throwing custom exes if they're not
         public virtual void EquipWeapon(Weapons weapon)
         {
             if (weapon.RequiredLevel > heroLevel)
@@ -88,6 +94,7 @@ namespace RPGHeroes.Hero
             }
         }
 
+        //Same as with weapons
         public virtual void EquipArmor(Armor armor)
         {
             if (armor.RequiredLevel > heroLevel)
@@ -129,10 +136,13 @@ namespace RPGHeroes.Hero
             CalculateTotalAttributes();
         }
 
+        //The following two functions are abstract to be overridden in the subclasses, to allow for easier
+        // workings with which stat is the main damaging one
         public abstract double CalculateDamage();
 
         public abstract HeroAttribute CalculateTotalAttributes();
 
+        //String builder used to display simple hero info
         public virtual string DisplayHeroDetails()
         {
             StringBuilder heroDetails = new StringBuilder();

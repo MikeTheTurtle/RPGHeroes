@@ -18,7 +18,11 @@ namespace RPGHeroes.Hero
         public int IncDexterity { get; private set; }
         public int IncIntelligence { get; private set; }
 
-        // Ctor
+        // Ok. Hear me out. I DID plan on making equippable armor that allow for _bonus_ permanent increases in stats
+        // when leveling up. However, a weekful of sickness and interviews (horrid combination btw, cannot really
+        // recommend) made these parameters live on and by this point (Friday the 17th, 18:47:56, to be precise) I
+        // honestly cannot find it in me to make this work, or make this prettier. So, uh, I'll take the hit Sean.
+        // Just, please be gentle. Just a little.
         public HeroAttribute(int strength, int dexterity, int intelligence,
             int incStrength, int incDexterity, int incIntelligence)
         {
